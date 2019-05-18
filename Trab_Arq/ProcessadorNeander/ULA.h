@@ -5,6 +5,8 @@ class ULA
 {
 public:
 	float a, b, s;
+	bool n, z;
+
 
 	ULA();
 
@@ -12,7 +14,11 @@ public:
 	void setB(float b);
 
 	float getS(void);
-	void ulaOp(int op);
+
+	bool getZ(void);
+	bool getN(void);
+
+	void op(int op);
 };
 
 #endif

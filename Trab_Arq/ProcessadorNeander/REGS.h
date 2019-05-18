@@ -7,8 +7,8 @@ public:
     float* regs;
     
     REGS ();
-    float readR(int _adress);
-    void writeR(int _adress, float _v);  
+    float get(int _adress);
+    void set(int _adress, float _v);  
 };
 
 #endif

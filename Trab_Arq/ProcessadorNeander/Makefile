@@ -8,7 +8,10 @@ ULA.o: ULA.cpp ULA.h
 PC.o: PC.cpp PC.h
 	g++ PC.cpp -c
 
-all: REGS.o ULA.o PC.o
+MEM.o: MEM.cpp MEM.hpp
+	g++ MEM.cpp -c
+
+all: REGS.o ULA.o PC.o MEM.o
 
 
 clear:
