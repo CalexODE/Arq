@@ -49,7 +49,7 @@ void PC::FTE()
 			ula.setA(regs.get(0));
 			ula.op(3);
 			regs.set(regs.get(0), ula.getS());
-			break;
+			break;		
 		case 7: //JMP
 			cont = mem.get(end);
 			break;

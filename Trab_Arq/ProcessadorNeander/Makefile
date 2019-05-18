@@ -11,8 +11,12 @@ PC.o: PC.cpp PC.h
 MEM.o: MEM.cpp MEM.hpp
 	g++ MEM.cpp -c
 
-all: REGS.o ULA.o PC.o MEM.o
+main.o: PO_PC.cpp
+	g++ PO_PC.cpp MEM.o PC.o ULA.o REGS.o -o main
+
+all: REGS.o ULA.o PC.o MEM.o main.o
 
 
 clear:
 	rm *.o
+	rm main
