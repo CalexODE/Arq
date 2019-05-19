@@ -6,6 +6,7 @@
 #include "MEM.hpp"
 
 #include <string>
+#include <iostream>
 
 class PC
 {

@@ -2,7 +2,7 @@
 
 MEM::MEM()
 {
-	this->mem = new int[100];
+	this->mem = new int[256];
 }
 MEM::~MEM()
 {

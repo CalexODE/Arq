@@ -17,56 +17,68 @@ void PC::FTE()
 	cont++;
 	int end = mem.get(cont);
 	cont++;
+
 	switch(EA)
 	{
 		case 0: //NOP
-
-		case 1: //STA
+			break;
+		case 16: //STA
 			mem.set(end, regs.get(0));
 			break;
-		case 2: //LDA
+
+		case 32: //LDA
 			regs.set(regs.get(0), mem.get(end));
 			break;
-		case 3: //ADD
+
+		case 48: //ADD
 			ula.setA(regs.get(0));
 			ula.setB(mem.get(end));
 			ula.op(1);
 			regs.set(regs.get(0), ula.getS());
 			break;
-		case 4: //OR
+
+		case 64: //OR
 			ula.setA(regs.get(0));
 			ula.setB(mem.get(end));
 			ula.op(4);
 			regs.set(regs.get(0), ula.getS());
 			break;
-		case 5: //AND
+
+		case 80: //AND
 			ula.setA(regs.get(0));
 			ula.setB(mem.get(end));
 			ula.op(5);
 			regs.set(regs.get(0), ula.getS());
 			break;
-		case 6: //NOT
+
+		case 96: //NOT
 			ula.setA(regs.get(0));
 			ula.op(3);
 			regs.set(regs.get(0), ula.getS());
-			break;		
-		case 7: //JMP
+			break;	
+
+		case 128: //JMP
 			cont = mem.get(end);
+
 			break;
-		case 8:	//JN
+
+		case 144:	//JN
 			if(ula.getN())
 			{
 				cont = mem.get(end);
 			}
 			break;
-		case 9: //JZ
+
+		case 160: //JZ
 			if(ula.getZ())
 			{
 				cont = mem.get(end);
 			}
 			break;
-		case 10: //HLT
+
+		case 240: //HLT
 			lastState=true;
+			break;
 		default:
 			break;
 	}
