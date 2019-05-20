@@ -21,13 +21,13 @@ int main()
     string line;
     int c = 0;
 
-    if (!dados){
+    if (!dados)
+    {
         cout<<"Erro ao abrir arquivo"<<endl;
         return -1;
     }
     while(getline(dados, line))
     {
-
         if (!line.empty())
         {
             size_t found = line.find(" ");
@@ -35,17 +35,13 @@ int main()
             string dado;
             int i;
             
-            for(i = 0; i < (int)found; i++){
-                end.push_back(line[i]);
-            }
+            for(i = 0; i < (int)found; i++)end.push_back(line[i]);
 
-            for(int j = i+1; j < (int)line.size(); j++){
-                dado.push_back(line[j]);
-            }
+            for(int j = i+1; j < (int)line.size(); j++)dado.push_back(line[j]);
 
-            cout <<end << " "<< dado << endl;
+            //cout <<end << " "<< dado << endl;
             mem->set(atoi(end.c_str()), atoi(dado.c_str()));
-            cout<<mem->get(atoi(end.c_str()))<<endl;
+            //cout<<mem->get(atoi(end.c_str()))<<endl;
         }
     }
     dados.close();
@@ -60,40 +56,24 @@ int main()
     }
     while(getline(func, line))
     {
-
-        if (!line.empty())
-        {
-            mem->set(c++, atoi(line.c_str()));
-            cout<<line<<endl;
-        }
+        if (!line.empty())mem->set(c++, atoi(line.c_str()));
     }
+
     func.close();
-    
-    /*
 
 
-    int* matriz = new int[size * size];
-    for (int i = 0; i < size*size; ++i) {
-        if (!(file >> matriz[i])) {Falhou em ler um dos valores}
-    }
-
-    Faça algo com sua matriz aqui.
-
-    delete[] matriz;
-    */
-
+    for (int i = 0; i < 255; i++)cout<<i<<": "<<mem->get(i)<<endl;//retirar
 
 
     for(int clock=0; clock < 100; clock++)
     {
     	pc->FTE();
     	pc->updateState();
-        cout<< ".";
-    	if (pc->getLastState() == true)
-    	{
-    		break;
-    	}
+    	if (pc->getLastState() == true)break;
     }
+
+    cout<<regs->get(0)<<endl;
+    
     cout<<endl;
     return 0;
 }

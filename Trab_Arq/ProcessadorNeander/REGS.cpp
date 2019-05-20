@@ -1,7 +1,7 @@
 #include "REGS.h"
 
 REGS::REGS(){
-    regs = new float[8];
+    regs = new float[1];
 };
     
 float REGS::get(int _adress){

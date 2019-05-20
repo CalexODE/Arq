@@ -8,6 +8,8 @@
 #include <string>
 #include <iostream>
 
+using namespace std;
+
 class PC
 {
 	public:
@@ -19,7 +21,7 @@ class PC
 		REGS regs;
 		MEM mem;
 
-		PC(ULA ula, REGS regs, MEM mem);
+		PC(ULA &u, REGS &r, MEM &m);
 		void FTE();
 		void updateState();
 		bool getLastState();
